@@ -3,31 +3,25 @@ package posts
 import (
 	"database/sql"
 	"encoding/json"
-	"go-rest-api/database" // Changed import
+	"go-rest-api/database"
 	"go-rest-api/internal/models"
 	"log"
 	"net/http"
 	"strconv"
 )
 
-// GetPostHandler handles GET requests for posts
 func GetPostHandler(w http.ResponseWriter, r *http.Request) {
-	// Log request for debugging
 	log.Printf("GET request received: %s", r.URL.String())
 
-	// Use the existing database connection
-	db := database.DB // Changed to use global DB
+	db := database.DB
 
-	// Check if it's a collection request
 	if IsCollectionRequest(r) {
 		getPostCollection(w, r, db)
 		return
 	}
 
-	// Otherwise, get a specific post by ID
 	id, ok := ExtractPostID(w, r)
 	if !ok {
-		// Error response already sent by ExtractPostID
 		return
 	}
 

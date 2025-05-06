@@ -20,8 +20,7 @@ func DeletePostHandler(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	// Use the existing database connection
-	db := database.DB // Changed to use global DB
+	db := database.DB
 
 	_, err := db.Exec("DELETE FROM likes WHERE post_id = ?", id)
 	if err != nil {

@@ -33,7 +33,6 @@ func UpdatePostHandler(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	// Use the existing database connection
 	db := database.DB
 
 	existingPost, err := getExistingPost(db, id)
@@ -102,7 +101,6 @@ func PatchPostHandler(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	// Use the existing database connection
 	db := database.DB
 
 	existingPost, err := getExistingPost(db, id)
