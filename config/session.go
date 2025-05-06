@@ -9,7 +9,6 @@ import (
 
 var Store *session.Store
 
-// SetupSessionStore initializes the session store
 func SetupSessionStore() {
 	Store = session.New(session.Config{
 		CookieName:     "session_id",
@@ -20,7 +19,6 @@ func SetupSessionStore() {
 	})
 }
 
-// GetSession retrieves the session for the given context
 func GetSession(c *fiber.Ctx) (*session.Session, error) {
 	return Store.Get(c)
 }

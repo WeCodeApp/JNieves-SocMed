@@ -24,7 +24,6 @@ func isValidSortField(field string) bool {
 }
 
 func getDbConnection() (*sql.DB, error) {
-	// Return the existing DB connection instead of creating a new one
 	return database.DB, nil
 }
 

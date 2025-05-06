@@ -20,11 +20,9 @@ func MicrosoftOAuthConfig() *oauth2.Config {
 		log.Fatal("Missing required OAuth environment variables")
 	}
 
-	// For Microsoft consumer accounts, use the appropriate endpoint and scopes
 	return &oauth2.Config{
 		ClientID:     clientID,
 		ClientSecret: clientSecret,
-		// Use Microsoft's authorization endpoint for consumer accounts
 		Endpoint: oauth2.Endpoint{
 			AuthURL:  "https://login.microsoftonline.com/consumers/oauth2/v2.0/authorize",
 			TokenURL: "https://login.microsoftonline.com/consumers/oauth2/v2.0/token",
